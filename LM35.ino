@@ -10,12 +10,11 @@ void loop() {
   // Get the voltage reading from the LM35
   int reading = analogRead(sensorPin);
 
-  // Convert that reading into voltage
-  float voltage = reading * (5.0 / 1024.0);
+  // Convert that reading into milivolts
+  float voltage = reading * (5000.0 / 1024.0);
 
   // Convert the voltage into the temperature in Celsius
-  float temperatureC = voltage * 100;
-  temperatureC = temperatureC - 470;
+  float temperatureC = voltage / 10.0;
   // Print the temperature in Celsius
   Serial.print("Temperature: ");
   Serial.print(voltage);
